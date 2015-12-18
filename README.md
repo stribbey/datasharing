@@ -5,17 +5,17 @@ This is a guide for anyone who needs to share data with a statistician. The targ
 
 * Scientific collaborators who need statisticians to analyze data for them
 * Students or postdocs in scientific disciplines looking for consulting advice
-* Junior statistics students whose job it is to collate/clean data sets
+* Junior statistics students whose job is to collate/clean data sets
 
 The goals of this guide are to provide some instruction on the best way to share data to avoid the most common pitfalls
 and sources of delay in the transition from data collection to data analysis. The [Leek group](http://biostat.jhsph.edu/~jleek/) works with a large
 number of collaborators and the number one source of variation in the speed to results is the status of the data
-when they arrive at the Leek group. Based on my conversations with other statisticians this is true nearly universally.
+when arriving at the Leek group. Based on my conversations with other statisticians, this is true nearly universally.
 
 My strong feeling is that statisticians should be able to handle the data in whatever state they arrive. It is important
 to see the raw data, understand the steps in the processing pipeline, and be able to incorporate hidden sources of
 variability in one's data analysis. On the other hand, for many data types, the processing steps are well documented
-and standardized. So the work of converting the data from raw form to directly analyzable form can be performed 
+and standardized. So, the work of converting the data from raw form to directly analyzable form can be performed 
 before calling on a statistician. This can dramatically speed the turnaround time, since the statistician doesn't
 have to work through all the pre-processing steps first. 
 
@@ -25,9 +25,9 @@ What you should deliver to the statistician
 
 For maximum speed in the analysis this is the information you should pass to a statistician:
 
-1. The raw data.
+1. The raw data
 2. A [tidy data set](http://vita.had.co.nz/papers/tidy-data.pdf) 
-3. A code book describing each variable and its values in the tidy data set.  
+3. A code book describing each variable and its values in the tidy data set  
 4. An explicit and exact recipe you used to go from 1 -> 2,3 
 
 Let's look at each part of the data package you will transfer. 
@@ -58,7 +58,7 @@ forensic study of your data to figure out why the raw data looks weird.
 
 The general principles of tidy data are laid out by [Hadley Wickham](http://had.co.nz/) in [this paper](http://vita.had.co.nz/papers/tidy-data.pdf)
 and [this video](http://vimeo.com/33727555). The paper and the video are both focused on the [R](http://www.r-project.org/) package, which you
-may or may not know how to use. Regardless the four general principles you should pay attention to are:
+may or may not know how to use. Regardless, the four general principles you should pay attention to are:
 
 1. Each variable you measure should be in one column
 1. Each different observation of that variable should be in a different row
@@ -75,14 +75,14 @@ Here is an example of how this would work from genomics. Suppose that for 20 peo
 [RNA-sequencing](http://en.wikipedia.org/wiki/RNA-Seq). You have also collected demographic and clinical information
 about the patients including their age, treatment, and diagnosis. You would have one table/spreadsheet that contains the clinical/demographic
 information. It would have four columns (patient id, age, treatment, diagnosis) and 21 rows (a row with variable names, then one row
-for every patient). You would also have one spreadsheet for the summarized genomic data. Usually this type of data
+for every patient). You would also have one spreadsheet for the summarized genomic data. Usually, this type of data
 is summarized at the level of the number of counts per exon. Suppose you have 100,000 exons, then you would have a
 table/spreadsheet that had 21 rows (a row for gene names, and one row for each patient) and 100,001 columns (one row for patient
 ids and one row for each data type). 
 
 If you are sharing your data with the collaborator in Excel, the tidy data should be in one Excel file per table. They
 should not have multiple worksheets, no macros should be applied to the data, and no columns/cells should be highlighted. 
-Alternatively share the data in a [CSV](http://en.wikipedia.org/wiki/Comma-separated_values) or [TAB-delimited](http://en.wikipedia.org/wiki/Tab-separated_values) text file.
+Alternatively, share the data in a [CSV](http://en.wikipedia.org/wiki/Comma-separated_values) or [TAB-delimited](http://en.wikipedia.org/wiki/Tab-separated_values) text file.
 
 
 ### The code book
@@ -123,7 +123,7 @@ that are missing and you don't know the mechanism. You should code missing value
 where you know the missingness mechanism on some level. Common examples are a measurement being below a detection limit
 or a patient being lost to follow-up. They should also be coded as `NA` when you don't have the data. But you should
 also add a new column to your tidy data called, "VariableNameCensored" which should have values of `TRUE` if censored 
-and `FALSE` if not. In the code book you should explain why those values are missing. It is absolutely critical to report
+and `FALSE` if not. In the code book, you should explain why those values are missing. It is absolutely critical to report
 to the analyst if there is a reason you know about that some of the data are missing. You should also not [impute](http://en.wikipedia.org/wiki/Imputation_(statistics\))/make up/
 throw away missing observations.
 
@@ -162,7 +162,7 @@ to confirm that they can obtain the same output file you did.
 What you should expect from the analyst
 ====================
 
-When you turn over a properly tidied data set it dramatically decreases the workload on the statistician. So hopefully
+When you turn over a properly tidied data set, it dramatically decreases the workload on the statistician. So hopefully,
 they will get back to you much sooner. But most careful statisticians will check your recipe, ask questions about
 steps you performed, and try to confirm that they can obtain the same tidy data that you did with, at minimum, spot
 checks.
